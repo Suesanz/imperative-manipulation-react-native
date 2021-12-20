@@ -1,7 +1,14 @@
 import React, {memo, useRef} from 'react';
-import {Animated, Dimensions, Easing, View} from 'react-native';
+import {
+  Animated,
+  Dimensions,
+  Easing,
+  StyleSheet,
+  View,
+  ViewStyle,
+} from 'react-native';
 import {Button} from './button';
-import {BubbleType2, BubbleType4} from './bubble-type';
+import {BubbleType1, BubbleType2} from './bubble-type';
 
 interface BubbleProps {
   bubblesCount: number;
@@ -160,17 +167,7 @@ export const Bubble: React.FunctionComponent<BubbleProps> = memo(
             delay,
             easing: Easing.bezier(0.42, 0, 0.58, 1), // easingInOut
           });
-
-          // bubble.animationRef?.start(({finished}) => {
-          //   bubble.animationRef?.start();
-          // });
         }),
-        // }),
-        // ),
-        // {
-        // iterations: -1, // Infinite
-        // resetBeforeIteration: true,
-        // },
       );
       animationRef.animation?.start(() => {
         stopAnimateBubbles();
@@ -182,54 +179,29 @@ export const Bubble: React.FunctionComponent<BubbleProps> = memo(
         {bubbleAnimatedNodes.map((bubble, idx) => (
           <Animated.View
             key={idx}
-            pointerEvents={'none'}
-            style={{
-              height: 40,
-              width: 40,
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              borderRadius: 50 / 2,
-              overflow: 'hidden',
-              // borderWidth: 1,
-              position: 'absolute',
-              opacity: opacityNodes[idx],
-              transform: [
-                {translateY: bubble.translateY},
-                {translateX: translateXNodes[idx]},
-                {scale: scaleNodes[idx]},
-                // {perspective: 10},
-                {rotate: rotateNodes[idx]},
-              ],
-              shadowColor: '#000',
-              shadowOffset: {
-                width: 0,
-                height: 6,
+            pointerEvents="none"
+            style={[
+              styles.block,
+              {
+                opacity: opacityNodes[idx],
+                transform: [
+                  {translateY: bubble.translateY},
+                  {translateX: translateXNodes[idx]},
+                  {scale: scaleNodes[idx]},
+                  {rotate: rotateNodes[idx]},
+                ],
+                shadowOpacity: shadowOpacityNodes[idx],
               },
-              shadowOpacity: shadowOpacityNodes[idx],
-              shadowRadius: 8.3,
-              elevation: 13,
-            }}>
+            ]}>
             {idx % 2 === 0 ? (
-              <BubbleType4 />
+              <BubbleType2 />
             ) : (
-              <BubbleType2 height={40} width={40} />
+              <BubbleType1 height={40} width={40} />
             )}
           </Animated.View>
         ))}
 
-        <View
-          style={{
-            position: 'absolute',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignSelf: 'center',
-            top: screenHeight - 70,
-            bottom: 0,
-            right: 0,
-            left: 0,
-          }}>
+        <View style={styles.buttonContainer}>
           <Button label="Start animation" onPress={animateBubbles} />
           <Button label="Reset animation" onPress={stopAnimateBubbles} />
         </View>
@@ -237,3 +209,34 @@ export const Bubble: React.FunctionComponent<BubbleProps> = memo(
     );
   },
 );
+
+const styles = StyleSheet.create({
+  block: {
+    height: 40,
+    width: 40,
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    borderRadius: 50 / 2,
+    overflow: 'hidden',
+    position: 'absolute',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowRadius: 8.3,
+    elevation: 13,
+  } as ViewStyle,
+  buttonContainer: {
+    position: 'absolute',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    top: screenHeight - 70,
+    bottom: 0,
+    right: 0,
+    left: 0,
+  } as ViewStyle,
+});

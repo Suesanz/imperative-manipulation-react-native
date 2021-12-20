@@ -21,7 +21,7 @@ const randomOpacityValues = [0.2, 0.4, 0.6, 0.8];
 const randomScaleValues = [0.4, 0.6, 0.8, 1];
 const randomRotateValues = ['20deg', '25deg', '-20deg', '-25deg', '0deg'];
 const randomImage = [
-  require('./src/assets/banner.png'),
+  require('./src/assets/banner-1.png'),
   require('./src/assets/banner-2.png'),
 ];
 
@@ -30,7 +30,7 @@ const App = () => {
   const [opacity, setOpacity] = useState(1);
   const [scale, setScale] = useState(1);
   const [rotate, setRotate] = useState('0deg');
-  const [source, setSource] = useState(require('./src/assets/banner.png'));
+  const [source, setSource] = useState(require('./src/assets/banner-1.png'));
 
   const getRandomValue = (
     array: number[] | string[],

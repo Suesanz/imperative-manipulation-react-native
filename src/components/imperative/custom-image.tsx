@@ -45,7 +45,7 @@ export const CustomImage = forwardRef(
     return (
       <Image
         ref={imageRef}
-        source={require('../../assets/banner.png')}
+        source={require('../../assets/banner-1.png')}
         style={styles.image}
       />
     );

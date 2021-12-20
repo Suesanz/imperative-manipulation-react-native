@@ -8,8 +8,14 @@ import {
   View,
 } from 'react-native';
 import {Blocks} from './src/components/imperative/blocks';
-import {CustomInput, CustomInputRef} from './src/components/imperative/custom-input';
-import {CustomImage, CustomImageRef} from './src/components/imperative/custom-image';
+import {
+  CustomInput,
+  CustomInputRef,
+} from './src/components/imperative/custom-input';
+import {
+  CustomImage,
+  CustomImageRef,
+} from './src/components/imperative/custom-image';
 import {Button} from './src/components/button';
 import {Bubble} from './src/components/bubble';
 
@@ -21,7 +27,7 @@ const randomOpacityValues = [0.2, 0.4, 0.6, 0.8];
 const randomScaleValues = [0.4, 0.6, 0.8, 1];
 const randomRotateValues = ['20deg', '25deg', '-20deg', '-25deg', '0deg'];
 const randomImage = [
-  require('./src/assets/banner.png'),
+  require('./src/assets/banner-1.png'),
   require('./src/assets/banner-2.png'),
 ];
 

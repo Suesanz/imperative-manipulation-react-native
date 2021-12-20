@@ -4,5 +4,6 @@ module.exports = {
   rules: {
     'spaced-comment': 'error',
     'object-curly-spacing': 'error',
+    'space-in-parens': 'error',
   },
 };
