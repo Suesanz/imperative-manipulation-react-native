@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexWrap: 'wrap',
     backgroundColor: '#ebeff8',
-    padding: 10,
     alignItems: 'center',
     justifyContent: 'center',
   },

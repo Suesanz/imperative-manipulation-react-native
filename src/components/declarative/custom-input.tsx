@@ -1,15 +1,32 @@
-import React from 'react';
-import {StyleSheet, Text, TextInput, TextStyle} from 'react-native';
+import React, {SetStateAction} from 'react';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TextStyle,
+  View,
+  ViewStyle,
+} from 'react-native';
 
 export interface CustomInputRef {
   clear: () => void;
 }
 
-export const CustomInput = ({input, setInput}) => {
+interface CustomInputProps {
+  input: string;
+  setInput: React.Dispatch<SetStateAction<string>>;
+}
+
+export const CustomInput: React.FunctionComponent<CustomInputProps> = ({
+  input,
+  setInput,
+}) => {
   return (
     <>
       {/*  Text message box from TextInput  */}
-      <Text style={styles.text}>{input}</Text>
+      <View style={styles.card}>
+        <Text style={styles.text}>{input}</Text>
+      </View>
 
       <TextInput
         value={input}
@@ -37,15 +54,28 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    height: 80,
+    fontSize: 18,
+  } as TextStyle,
+
+  card: {
+    height: 85,
     width: '72%',
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 6,
+    borderWidth: 2,
     borderColor: '#2B83EA',
     padding: 10,
     borderRadius: 10,
     backgroundColor: '#f4f6fa',
     fontSize: 18,
-  } as TextStyle,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 9,
+    },
+    shadowOpacity: 0.48,
+    shadowRadius: 11.95,
+
+    elevation: 18,
+  } as ViewStyle,
 });
