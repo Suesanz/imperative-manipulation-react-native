@@ -1,12 +1,5 @@
 import React, {useRef} from 'react';
-import {
-  Dimensions,
-  ImageSourcePropType,
-  SafeAreaView,
-  StyleSheet,
-  TextStyle,
-  View,
-} from 'react-native';
+import {ImageSourcePropType, SafeAreaView, View} from 'react-native';
 import {Blocks} from './src/components/imperative/blocks';
 import {
   CustomInput,
@@ -18,10 +11,9 @@ import {
 } from './src/components/imperative/custom-image';
 import {Button} from './src/components/button';
 import {Bubble} from './src/components/bubble';
+import {styles} from './src/components/styles';
 
 export const containerHorizontalMargin = 2;
-
-const screenHeight = Dimensions.get('screen').height;
 
 const randomOpacityValues = [0.2, 0.4, 0.6, 0.8];
 const randomScaleValues = [0.4, 0.6, 0.8, 1];
@@ -71,7 +63,7 @@ const App = () => {
 
       <View style={styles.inputContainer}>
         <CustomInput ref={inputRef} />
-        <Button label={'Clear'} onPress={onInputClear} />
+        <Button label="Clear" onPress={onInputClear} />
         <CustomImage ref={imageRef} />
 
         <View style={styles.utilButtonContainer}>
@@ -85,62 +77,5 @@ const App = () => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexWrap: 'wrap',
-    backgroundColor: '#ebeff8',
-    padding: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  inputContainer: {
-    height: screenHeight,
-    alignItems: 'center',
-    alignSelf: 'center',
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 130,
-    bottom: 0,
-  },
-  backgroundImage: {
-    resizeMode: 'contain',
-    width: '100%',
-    position: 'absolute',
-    top: -50,
-    bottom: 0,
-  },
-  input: {
-    height: 30,
-    width: '70%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderBottomWidth: 1,
-    borderColor: '#162F56',
-    marginTop: 150,
-    fontSize: 18,
-  },
-  text: {
-    height: 80,
-    width: '70%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 6,
-    borderColor: '#2B83EA',
-    padding: 10,
-    borderRadius: 10,
-    backgroundColor: '#f4f6fa',
-    fontSize: 18,
-  } as TextStyle,
-
-  utilButtonContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    marginTop: 40,
-  },
-});
 
 export default App;

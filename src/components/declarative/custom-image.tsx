@@ -1,5 +1,6 @@
 import React from 'react';
-import {Image, ImageSourcePropType, ImageStyle, StyleSheet} from 'react-native';
+import {Image, ImageSourcePropType} from 'react-native';
+import {styles} from '../styles';
 
 export interface CustomImageRef {
   setOpacity: (opacity: number) => void;
@@ -16,13 +17,3 @@ export const CustomImage = ({opacity, scale, rotate, source}) => {
     />
   );
 };
-
-const styles = StyleSheet.create({
-  image: {
-    width: '72%',
-    marginTop: 50,
-    borderWidth: 1.5,
-    borderRadius: 4,
-    borderColor: '#2B83EA',
-  } as ImageStyle,
-});

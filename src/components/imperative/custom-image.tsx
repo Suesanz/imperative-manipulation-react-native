@@ -4,7 +4,8 @@ import React, {
   useImperativeHandle,
   useRef,
 } from 'react';
-import {Image, ImageSourcePropType, ImageStyle, StyleSheet} from 'react-native';
+import {Image, ImageSourcePropType} from 'react-native';
+import {styles} from '../styles';
 
 export interface CustomImageRef {
   setOpacity: (opacity: number) => void;
@@ -51,13 +52,3 @@ export const CustomImage = forwardRef(
     );
   },
 );
-
-const styles = StyleSheet.create({
-  image: {
-    width: '72%',
-    marginTop: 50,
-    borderWidth: 1.5,
-    borderRadius: 4,
-    borderColor: '#2B83EA',
-  } as ImageStyle,
-});

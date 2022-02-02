@@ -42,5 +42,6 @@ const styles = StyleSheet.create({
   noBlockText: {
     fontWeight: 'bold',
     fontSize: 22,
+    display: 'none',
   },
 });
