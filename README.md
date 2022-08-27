@@ -1,5 +1,5 @@
 # Imperative manipulation in react-native
-Check out imperative and declarative manipulation in React Native
+Here's the [blog post](https://engineering.razorpay.com/getting-react-native-to-60-fps-with-imperative-manipulation-ccd4e85f5fef) explaining Imperative manipulation in React Native.
 
 
 ## Switch between declarative and imperative
