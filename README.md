@@ -1,4 +1,4 @@
-# Imperative manipulation in react-native
+# Getting React Native to 60 FPS with imperative manipulation
 Here's the [blog post](https://engineering.razorpay.com/getting-react-native-to-60-fps-with-imperative-manipulation-ccd4e85f5fef) explaining Imperative manipulation in React Native.
 
 
